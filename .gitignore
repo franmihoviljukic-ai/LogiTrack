@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+*.user
+
+# Lokalni JWT ključ
+appsettings.Development.json
+
+# Lokalna baza i korisnički podaci
+*.db
+*.db-shm
+*.db-wal

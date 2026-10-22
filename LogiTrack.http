@@ -1,0 +1,36 @@
+@LogiTrack_HostAddress = http://localhost:5194
+@token = paste_accessToken_here
+
+### Register a regular user (no privileged roles)
+POST {{LogiTrack_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Example!Pass2026"
+}
+
+### Login, then copy accessToken into @token above
+POST {{LogiTrack_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Example!Pass2026"
+}
+
+### Authenticated inventory request
+GET {{LogiTrack_HostAddress}}/api/inventory
+Authorization: Bearer {{token}}
+
+### Authenticated orders request
+GET {{LogiTrack_HostAddress}}/api/orders
+Authorization: Bearer {{token}}
+
+### Manager only: replace 123 with the intended item ID
+DELETE {{LogiTrack_HostAddress}}/api/inventory/123
+Authorization: Bearer {{token}}
+
+### Manager only: replace 123 with the intended order ID
+DELETE {{LogiTrack_HostAddress}}/api/orders/123
+Authorization: Bearer {{token}}
