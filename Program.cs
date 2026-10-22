@@ -128,4 +128,6 @@ using (var context = scope.ServiceProvider.GetRequiredService<LogiTrackContext>(
 
 }
 
+//okok
+
 app.Run();
